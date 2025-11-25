@@ -62,6 +62,13 @@
     .team-member h4 { margin-bottom: 5px; color: #333; }
     .team-member p { color: #555; font-size: 0.9rem; }
 
+    /* Contact Section */
+    #contact { padding: 60px 40px; background: #ffffff; }
+    #contact h2 { text-align: center; color: #0b6b6b; margin-bottom: 40px; font-size: 2rem; }
+    #contact .contact-content { text-align: center; font-size: 1rem; color: #333; }
+    #contact a { color: #0b6b6b; text-decoration: none; font-weight: 600; }
+    #contact a:hover { text-decoration: underline; }
+
     /* Responsive */
     @media (max-width: 900px) {
       .hero-text, .hero-image { max-width: 100%; text-align: center; }
@@ -133,25 +140,26 @@
     </div>
   </section>
 
-  <!-- Booking Modal -->
+  <!-- Booking Modal with Formspree -->
   <div id="bookingModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="document.getElementById('bookingModal').style.display='none'">&times;</span>
       <h3>Book a Service</h3>
-      <input type="text" placeholder="Full Name" id="userName" />
-      <input type="email" placeholder="Email" id="userEmail" />
-      <input type="tel" placeholder="Phone Number" id="userPhone" />
-      <select id="serviceSelect">
-        <option value="">Select a Service</option>
-        <option value="NGS & Metagenomics">NGS & Metagenomics</option>
-        <option value="RNA‑Seq & Transcriptomics">RNA‑Seq & Transcriptomics</option>
-        <option value="Pipeline Development">Pipeline Development</option>
-        <option value="Machine Learning & Biomarkers">Machine Learning & Biomarkers</option>
-        <option value="Primer Design & In-silico PCR">Primer Design & In-silico PCR</option>
-        <option value="Publication-ready Reports">Publication-ready Reports</option>
-      </select>
-      <button onclick="submitBooking()">Submit</button>
-      <p id="bookingMessage" style="margin-top:15px; color:green;"></p>
+      <form action="https://formspree.io/f/yourFormID" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="tel" name="phone" placeholder="Phone Number" required />
+        <select name="service" required>
+          <option value="">Select a Service</option>
+          <option value="NGS & Metagenomics">NGS & Metagenomics</option>
+          <option value="RNA‑Seq & Transcriptomics">RNA‑Seq & Transcriptomics</option>
+          <option value="Pipeline Development">Pipeline Development</option>
+          <option value="Machine Learning & Biomarkers">Machine Learning & Biomarkers</option>
+          <option value="Primer Design & In-silico PCR">Primer Design & In-silico PCR</option>
+          <option value="Publication-ready Reports">Publication-ready Reports</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
 
@@ -189,10 +197,9 @@
     <div class="contact-content">
       <p>Email: <a href="mailto:omicxlabs@outlook.com">omicxlabs@outlook.com</a></p>
       <p>WhatsApp: <a href="https://wa.me/201145193462" target="_blank">+201145193462</a></p>
-      <div class="socials">
-        <a href="https://facebook.com/OmicX.Labs" target="_blank">Facebook</a>
-        <a href="https://www.linkedin.com/company/omicx-labs" target="_blank">LinkedIn</a>
-      </div>
+      <p>Follow us:</p>
+      <a href="https://facebook.com/OmicX.Labs" target="_blank">Facebook</a> | 
+      <a href="https://www.linkedin.com/company/omicx-labs" target="_blank">LinkedIn</a>
     </div>
   </section>
 
@@ -203,24 +210,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
-
-    function submitBooking() {
-      const name = document.getElementById('userName').value;
-      const email = document.getElementById('userEmail').value;
-      const phone = document.getElementById('userPhone').value;
-      const service = document.getElementById('serviceSelect').value;
-
-      if (!name || !email || !phone || !service) {
-        alert("Please fill in all fields.");
-        return;
-      }
-
-      document.getElementById('bookingMessage').innerText = "Your service has been booked! Our team will contact you soon.";
-      document.getElementById('userName').value = '';
-      document.getElementById('userEmail').value = '';
-      document.getElementById('userPhone').value = '';
-      document.getElementById('serviceSelect').value = '';
-    }
 
     // Close modal when clicking outside content
     window.onclick = function(event) {
