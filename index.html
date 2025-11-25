@@ -1,66 +1,77 @@
-<!--
-OmicX - GitHub Pages single-file template
-Edit the placeholders below (NAME, SUBTITLE, SERVICES, CONTACT links) before publishing.
-Save this file as index.html in the root of your GitHub repository named <your-github-username>.github.io
--->
-
 <!doctype html>
 <html lang="ar">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>OmicX — Next-Gen Bioinformatics</title>
-  <meta name="description" content="OmicX — خدمات Bioinformatics: NGS, RNA-seq, Metagenomics, Pipelines, ML/AI.">
+  <meta name="description" content="OmicX Labs — إحنا هنا نحللك كل الـ bioinformatics مشاكل بتاعتك! From NGS, RNA-seq, Metagenomics analysis لحد pipelines متكاملة وML/AI models. نطلعلك reports جاهزة للنشر، نعملك analysis سريع ودقيق، ونساعدك تلاقي الbiomarkers الصح. كل حاجة reproducible وprofessional — شغلنا معموله مخصوص ليك!">
   <style>
-    :root{--accent:#0b6b6b;--muted:#6b7280;--bg:#f8fafc;--card:#ffffff}
+    :root{
+      --accent:#0b6b6b;
+      --muted:#6b7280;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --button-hover:#f39c12;
+    }
     *{box-sizing:border-box}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;margin:0;background:var(--bg);color:#0f172a}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;margin:0;background:var(--bg);color:var(--text)}
     .container{max-width:980px;margin:28px auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between}
+    header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
     .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#0b9b8b);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .logo img{width:56px;height:56px;border-radius:10px;}
     h1{font-size:26px;margin:0}
     p.lead{color:var(--muted);margin-top:6px}
     .hero{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:22px}
     .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(8,15,20,0.05)}
-    .cta{display:flex;gap:10px;margin-top:12px}
-    .btn{padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
+    .cta{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:600;transition:0.3s}
     .btn-primary{background:var(--accent);color:white}
+    .btn-primary:hover{background:var(--button-hover)}
     .btn-ghost{background:transparent;border:1px solid #e6eef0}
+    .btn-ghost:hover{background:var(--button-hover);color:white}
     ul.services{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:8px}
     ul.services li{background:#f1f5f9;padding:10px;border-radius:8px}
     .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     footer{margin-top:26px;text-align:center;color:var(--muted);font-size:14px}
     .socials{display:flex;gap:8px;justify-content:center;margin-top:10px}
-    a.social{display:inline-block;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e6eef0;text-decoration:none;color:var(--accent);font-weight:600}
+    a.social{display:inline-block;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e6eef0;text-decoration:none;color:var(--accent);font-weight:600;transition:0.3s}
+    a.social:hover{background:var(--accent);color:white}
+    nav a{margin-left:12px;color:var(--muted);text-decoration:none;font-weight:600;transition:0.3s}
+    nav a:hover{color:var(--accent)}
     @media(max-width:880px){.hero{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Header -->
     <header>
       <div class="brand">
-        <div class="logo">OX</div>
+        <div class="logo">
+          <img src="logo.png" alt="OmicX Labs Logo">
+        </div>
         <div>
-          <h1>OmicX</h1>
+          <h1>OmicX Labs</h1>
           <div style="color:var(--muted);font-size:14px">Next‑Gen Bioinformatics Solutions — NGS · RNA‑seq · Metagenomics · ML</div>
         </div>
       </div>
       <nav>
-        <a href="#services" style="margin-left:12px;color:var(--accent);text-decoration:none;font-weight:600">الخدمات</a>
-        <a href="#about" style="margin-left:12px;color:var(--muted);text-decoration:none">عنّا</a>
-        <a href="#contact" style="margin-left:12px;color:var(--muted);text-decoration:none">تواصل</a>
+        <a href="#services">الخدمات</a>
+        <a href="#about">عنّا</a>
+        <a href="#contact">تواصل</a>
       </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
       <div>
         <div class="card">
           <h2 style="margin:0">حلول Bioinformatics كاملة — من الـ raw data لحد الreport</h2>
-          <p class="lead">نحلل بيانات NGS، RNA‑seq، Metagenomics، ونطوّر pipelines بـ Nextflow/Snakemake. نستخدم ML/AI لاستخراج مؤشرات حيوية قابلة للنشر.</p>
+          <p class="lead">
+            OmicX Labs — إحنا هنا نحللك كل الـ bioinformatics مشاكل بتاعتك! From NGS, RNA-seq, Metagenomics analysis لحد custom pipelines وML/AI models. نطلعلك reports جاهزة للنشر ونساعدك تكتشف الـ biomarkers الصح بسرعة وبدقة. كل حاجة reproducible وprofessional — شغلنا معموله مخصوص ليك علشان تسهّل البحث وتحصل على نتائج مظبوطة 100%.
+          </p>
           <div class="cta">
             <button class="btn btn-primary" onclick="location.href='#contact'">اطلب خدمة</button>
-            <button class="btn btn-ghost" onclick="location.href='#portfolio'">شوف أعمالنا</button>
           </div>
         </div>
 
@@ -79,13 +90,13 @@ Save this file as index.html in the root of your GitHub repository named <your-g
 
       <aside>
         <div class="card">
-          <h4 style="margin:0">Contact</h4>
-          <p style="color:var(--muted);margin-top:6px">Email: <a href="mailto:hello@omicx.example">hello@omicx.example</a></p>
-          <p style="color:var(--muted);margin-top:6px">WhatsApp: <a href="https://wa.me/YOUR_NUMBER">+20‑YOUR‑NUMBER</a></p>
+          <h4 style="margin:0">تواصل معنا</h4>
+          <p style="color:var(--muted)">Email: <a href="mailto:ibraheemmustafa52@gmail.com">ibraheemmustafa52@gmail.com</a></p>
+          <p style="color:var(--muted)">WhatsApp: <a href="https://wa.me/201145193462" target="_blank">+201145193462</a></p>
           <div style="margin-top:10px">
-            <a class="social" href="YOUR_FACEBOOK_URL" target="_blank">Facebook</a>
-            <a class="social" href="YOUR_LINKEDIN_URL" target="_blank">LinkedIn</a>
-            <a class="social" href="YOUR_GITHUB_URL" target="_blank">GitHub</a>
+            <a class="social" href="https://facebook.com/YourPage" target="_blank">Facebook</a>
+            <a class="social" href="https://linkedin.com/in/YourProfile" target="_blank">LinkedIn</a>
+            <a class="social" href="https://github.com/YourGitHub" target="_blank">GitHub</a>
           </div>
         </div>
 
@@ -96,10 +107,13 @@ Save this file as index.html in the root of your GitHub repository named <your-g
       </aside>
     </section>
 
+    <!-- About Section -->
     <section id="about" style="margin-top:20px">
       <div class="card">
         <h3>عن OmicX</h3>
-        <p style="color:var(--muted)">OmicX هي شركة ناشئة متخصصة في جميع خدمات البيوانفورماتكس: من تجهيز وتحليل بيانات NGS حتى تطوير pipelines وأدوات ML. مؤسسها: Ibraheem Mustafa Aly — خبرة في Metagenomics وTranscriptomics ونشر أبحاث في المجال.</p>
+        <p style="color:var(--muted)">
+          OmicX هي شركة ناشئة متخصصة في جميع خدمات البيوانفورماتكس: من تجهيز وتحليل بيانات NGS حتى تطوير pipelines وأدوات ML. مؤسسها: Ibraheem Mustafa Aly — خبرة في Metagenomics وTranscriptomics ونشر أبحاث في المجال. EST. 2025
+        </p>
       </div>
 
       <div class="two-col" style="margin-top:12px">
@@ -118,27 +132,22 @@ Save this file as index.html in the root of your GitHub repository named <your-g
       </div>
     </section>
 
-    <section id="portfolio" style="margin-top:18px">
-      <div class="card">
-        <h3>نماذج أعمال (Portfolio)</h3>
-        <p style="color:var(--muted)">سأضيف هنا أمثلة مشاريع فعلية — يمكنك تزويدي بملخصات المشاريع لأعرضها بشكل احترافي.</p>
-      </div>
-    </section>
-
+    <!-- Contact Section -->
     <section id="contact" style="margin-top:18px">
       <div class="card">
         <h3>تواصل معنا</h3>
-        <p style="color:var(--muted)">ابعتلنا على: <a href="mailto:hello@omicx.example">hello@omicx.example</a> أو استخدم WhatsApp.</p>
+        <p style="color:var(--muted)">ابعتلنا على: <a href="mailto:ibraheemmustafa52@gmail.com">ibraheemmustafa52@gmail.com</a> أو استخدم WhatsApp: <a href="https://wa.me/201145193462" target="_blank">+201145193462</a></p>
         <p style="color:var(--muted)">أو املأ النموذج: <em>(قريبًا)</em></p>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-      © <span id="year"></span> OmicX — All rights reserved
+      © <span id="year"></span> OmicX — All rights reserved | EST. 2025
       <div class="socials">
-        <a class="social" href="YOUR_FACEBOOK_URL" target="_blank">Facebook</a>
-        <a class="social" href="YOUR_LINKEDIN_URL" target="_blank">LinkedIn</a>
-        <a class="social" href="YOUR_GITHUB_URL" target="_blank">GitHub</a>
+        <a class="social" href="https://facebook.com/YourPage" target="_blank">Facebook</a>
+        <a class="social" href="https://linkedin.com/in/YourProfile" target="_blank">LinkedIn</a>
+        <a class="social" href="https://github.com/YourGitHub" target="_blank">GitHub</a>
       </div>
     </footer>
   </div>
