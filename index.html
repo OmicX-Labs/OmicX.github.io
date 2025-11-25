@@ -21,9 +21,9 @@
 
     /* Navbar */
     header { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-    .logo img { height: 50px; }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav a { text-decoration: none; color: #333; font-weight: 600; }
+    .logo img { height: 60px; width: auto; }
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav a { text-decoration: none; color: #333; font-weight: 600; transition: color .3s; }
     nav a:hover { color: #0b6b6b; }
 
     /* Hero Section */
@@ -69,11 +69,15 @@
     #contact a { color: #0b6b6b; text-decoration: none; font-weight: 600; }
     #contact a:hover { text-decoration: underline; }
 
+    /* Footer */
+    footer { text-align: center; padding: 20px; background: #e6f0f0; color: #0b6b6b; font-weight: 600; }
+
     /* Responsive */
     @media (max-width: 900px) {
       .hero-text, .hero-image { max-width: 100%; text-align: center; }
       .hero { flex-direction: column; gap: 30px; }
       .hero-image img { max-height: 250px; }
+      nav ul { flex-direction: column; gap: 15px; }
     }
     @media (max-width: 500px) {
       .modal-content { margin: 50px 20px; }
@@ -82,9 +86,10 @@
 </head>
 <body>
 
+  <!-- Header with logo on left -->
   <header>
     <div class="logo">
-      <img src="logonew.png" alt="OmicX Labs Logo" />
+      <img src="logonew2.png" alt="OmicX Labs Logo" />
     </div>
     <nav>
       <ul>
@@ -178,7 +183,7 @@
         <p>Neuroscience Researcher & Co-Founder OmicX Labs</p>
       </div>
       <div class="team-member">
-        <img src="nouran.jpg" alt="Team Member">
+        <img src="nouran1.jpg" alt="Team Member">
         <h4>Nouran Mahmoud</h4>
         <p>Senior Account Manager</p>
       </div>
@@ -186,6 +191,7 @@
         <img src="hossam.jpeg" alt="Team Member">
         <h4>Hossam Banna</h4>
         <p>Senior Digital Marketing</p>
+      </div>
     </div>
   </section>
 
