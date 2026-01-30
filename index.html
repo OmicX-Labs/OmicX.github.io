@@ -3,275 +3,319 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OmicX Labs</title>
-  <meta name="description" content="OmicX Labs – فريق Bioinformatics يقدم تحليلات NGS، RNA‑seq، Metagenomics مع حلول pipelines و ML/AI متطورة." />
 
-  <!-- Favicon -->
+  <title>OmicX Labs | Bioinformatics & Omics Analysis</title>
+  <meta name="description" content="OmicX Labs provides professional bioinformatics services including genomics, RNA-seq, metagenomics, machine learning, and reproducible pipeline development." />
+
   <link rel="icon" href="logowebsite.png" type="image/png">
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- AOS Animations -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #111; background: #f5f8fa; scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      background: #f5f8fa;
+      color: #111;
+      scroll-behavior: smooth;
+    }
 
-    /* Navbar */
-    header { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-    .logo img { height: 60px; width: auto; }
-    nav ul { list-style: none; display: flex; gap: 25px; }
-    nav a { text-decoration: none; color: #333; font-weight: 600; transition: color .3s; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 35px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #333;
+    }
+
     nav a:hover { color: #0b6b6b; }
 
-    /* Hero Section */
-    .hero { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 80px 40px; background: linear-gradient(135deg, #0b6b6b, #1f9d9d); color: white; }
-    .hero-text { max-width: 50%; }
-    .hero-text h1 { font-size: 2.8rem; margin-bottom: 20px; }
-    .hero-text p { font-size: 1.1rem; margin-bottom: 25px; }
-    .hero-text .btn { padding: 12px 24px; font-size: 1rem; border: none; border-radius: 6px; cursor: pointer; }
-    .btn-primary { background: white; color: #0b6b6b; font-weight: 600; }
-    .btn-secondary { background: transparent; border: 2px solid white; color: white; }
-    .hero-image { max-width: 45%; }
-    .hero-image img { width: 100%; max-height: 350px; object-fit: contain; border-radius: 12px; }
-
-    /* Services Section */
-    #services { padding: 60px 40px; background: #ffffff; scroll-margin-top: 80px; }
-    #services h2 { text-align: center; color: #0b6b6b; margin-bottom: 40px; font-size: 2.2rem; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-    .service-card { background: #f9fafb; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .service-card h3 { margin-bottom: 15px; color: #333; }
-    .service-card p { color: #666; line-height: 1.4; }
-
-    /* Booking Modal */
-    .modal { display: none; position: fixed; z-index: 500; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
-    .modal-content { background: #fff; margin: 100px auto; padding: 30px; border-radius: 10px; max-width: 500px; position: relative; }
-    .modal-content h3 { margin-bottom: 20px; color: #0b6b6b; }
-    .modal-content input, .modal-content select { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #ccc; }
-    .modal-content button { width: 100%; padding: 12px; border: none; border-radius: 6px; background: #0b6b6b; color: white; font-weight: 600; cursor: pointer; }
-    .close { position: absolute; top: 10px; right: 15px; font-size: 22px; cursor: pointer; color: #0b6b6b; }
-
-    /* Team Section */
-    #team { padding: 60px 40px; background: #f5f8fa; text-align: center; }
-    #team h2 { color: #0b6b6b; font-size: 2rem; margin-bottom: 40px; }
-    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 25px; justify-items: center; }
-    .team-member { text-align: center; }
-    .team-member img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
-    .team-member h4 { margin-bottom: 5px; color: #333; }
-    .team-member p { color: #555; font-size: 0.9rem; }
-
-    /* Contact Section */
-    #contact { padding: 60px 40px; background: #ffffff; }
-    #contact h2 { text-align: center; color: #0b6b6b; margin-bottom: 40px; font-size: 2rem; }
-    #contact .contact-content { text-align: center; font-size: 1rem; color: #333; }
-    #contact a { color: #0b6b6b; text-decoration: none; font-weight: 600; }
-    #contact a:hover { text-decoration: underline; }
-
-    /* Footer */
-    footer { text-align: center; padding: 20px; background: #e6f0f0; color: #0b6b6b; font-weight: 600; }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero-text, .hero-image { max-width: 100%; text-align: center; }
-      .hero { flex-direction: column; gap: 30px; }
-      .hero-image img { max-height: 250px; }
-      nav ul { flex-direction: column; gap: 15px; }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 40px;
+      background: linear-gradient(135deg,#0b6b6b,#1f9d9d);
+      color: white;
     }
-    @media (max-width: 500px) {
-      .modal-content { margin: 50px 20px; }
+
+    .hero-text { max-width: 520px; }
+
+    .hero-text h1 {
+      font-size: 2.7rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #0b6b6b;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    section {
+      padding: 70px 40px;
+      scroll-margin-top: 90px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #0b6b6b;
+      margin-bottom: 45px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #fff;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.06);
+    }
+
+    .service-card h3 {
+      margin-bottom: 12px;
+      color: #222;
+    }
+
+    .service-card p {
+      color: #555;
+      font-size: .95rem;
+    }
+
+    .service-card ul {
+      margin-top: 15px;
+      padding-left: 18px;
+      font-size: .9rem;
+      color: #444;
+    }
+
+    .service-card ul li {
+      margin-bottom: 7px;
+    }
+
+    #about {
+      background: #ffffff;
+    }
+
+    #about .box {
+      max-width: 900px;
+      margin: auto;
+      background: #f9fafb;
+      padding: 45px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.05);
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .team-member img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #e6f0f0;
+      color: #0b6b6b;
+      font-weight: 600;
+    }
+
+    @media(max-width:900px) {
+      .hero { flex-direction: column; text-align: center; }
+      nav ul { flex-direction: column; }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Header with logo on left -->
-  <header>
-    <div class="logo">
-      <img src="logonew2.png" alt="OmicX Labs Logo" />
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <img src="logonew2.png" height="55" alt="OmicX Labs">
+  <nav>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <!-- Hero Section -->
-  <section class="hero" data-aos="fade-up">
-    <div class="hero-text" data-aos="fade-right">
-      <h1>Next‑Gen Bioinformatics Solutions</h1>
-      <p>We transform raw NGS, RNA‑seq, and metagenomic data into actionable insights using custom pipelines, ML/AI models, and reproducible workflows.</p>
-      <button class="btn btn-primary" onclick="document.getElementById('bookingModal').style.display='block'">Book a Service</button>
-      <button class="btn btn-secondary" onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })">Our Services</button>
-    </div>
-    <div class="hero-image" data-aos="fade-left">
-      <img src="logonew2.png" alt="Bioinformatics Analysis" />
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" data-aos="fade-up">
-    <h2>Our Core Services</h2>
-    <div class="services-grid">
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
-        <h3>NGS & Metagenomics</h3>
-        <p>Comprehensive analysis of genomic and metagenomic data — from quality control to taxonomic profiling.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
-        <h3>RNA‑Seq & Transcriptomics</h3>
-        <p>Differential expression, transcript quantification, and functional annotation.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
-        <h3>Pipeline Development</h3>
-        <p>Custom reproducible pipelines (Nextflow / Snakemake) for data processing and analysis.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
-        <h3>Machine Learning & Biomarkers</h3>
-        <p>Predictive modelling, feature selection and biomarker discovery using ML/AI.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
-        <h3>Primer Design & In-silico PCR</h3>
-        <p>Design of primers, virtual PCR simulation, and specificity checks.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="600">
-        <h3>Publication-ready Reports</h3>
-        <p>High-quality figures, statistical summaries, and detailed reports ready for publication.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Booking Modal with Formspree -->
-  <div id="bookingModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('bookingModal').style.display='none'">&times;</span>
-      <h3>Book a Service</h3>
-      <form action="https://formspree.io/f/yourFormID" method="POST">
-        <input type="text" name="name" placeholder="Full Name" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="tel" name="phone" placeholder="Phone Number" required />
-        <select name="service" required>
-          <option value="">Select a Service</option>
-          <option value="NGS & Metagenomics">NGS & Metagenomics</option>
-          <option value="RNA‑Seq & Transcriptomics">RNA‑Seq & Transcriptomics</option>
-          <option value="Pipeline Development">Pipeline Development</option>
-          <option value="Machine Learning & Biomarkers">Machine Learning & Biomarkers</option>
-          <option value="Primer Design & In-silico PCR">Primer Design & In-silico PCR</option>
-          <option value="Publication-ready Reports">Publication-ready Reports</option>
-        </select>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Team Section -->
-  <section id="team" data-aos="fade-up">
-    <h2>Meet Our Team</h2>
-    <div class="team-grid">
-      <div class="team-member">
-        <img src="ibraheem.jpg" alt="Team Member">
-        <h4>Ibraheem Mustafa</h4>
-        <p>Bioinformatics Specialist & Co-Founder OmicX Labs</p>
-      </div>
-      <div class="team-member">
-        <img src="ruth.jpeg" alt="Team Member">
-        <h4>Ruth Gamal</h4>
-        <p>Neuroscience Researcher & Co-Founder OmicX Labs</p>
-      </div>
-      <div class="team-member">
-        <img src="nouran1.jpeg" alt="Team Member">
-        <h4>Nouran Mahmoud</h4>
-        <p>Senior Account Manager</p>
-      </div>
-      <div class="team-member">
-        <img src="passant.jpg" alt="Team Member">
-        <h4>Passant Osama</h4>
-        <p>Senior Account Manager</p>
-      </div>
-      <div class="team-member">
-        <img src="hossam.jpeg" alt="Team Member">
-        <h4>Hossam Banna</h4>
-        <p>Senior Digital Marketing</p>
-      </div>
-      <div class="team-member">
-        <img src="hanan.jpeg" alt="Team Member">
-        <h4>Hanan Ragab</h4>
-        <p>Senior Account Manager</p>
-      </div>
-    </div>
-  </section>
-
- <!-- About Section -->
-<section id="about" data-aos="fade-up" style="padding: 60px 40px; background: #ffffff;">
-  <div style="
-        max-width: 900px;
-        margin: auto;
-        background: #f9fafb;
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        line-height: 1.8;
-        font-size: 1rem;
-        color: #333;">
-        
-      <h2 style="text-align: center; color: #0b6b6b; margin-bottom: 25px; font-size: 2rem;">
-        About OmicX Labs
-      </h2>
-
-      <p style="margin-bottom: 18px;">
-        OmicX Labs is a fast, flexible, and highly skilled freelance bioinformatics team based in Cairo, Egypt.
-        We provide end-to-end data analysis solutions across genomics, transcriptomics, metagenomics, RNA-seq,
-        NGS workflows, primer design, machine learning, and AI-driven pipelines.
-      </p>
-
-      <p style="margin-bottom: 18px;">
-        Our workflow is built for speed, accuracy, and clarity. Every project is reviewed by specialized consultants 
-        to ensure high-quality, publication-ready results for researchers, academics, clinicians, and pharmaceutical teams.
-      </p>
-
-      <p style="margin-bottom: 18px;">
-        We support a wide range of scientific fields, including biotechnology, pharmacy, medicine, microbiology, 
-        and molecular research—delivering reliable insights with smooth communication and a detail-oriented approach.
-      </p>
-
-      <p style="margin-bottom: 0;">
-        At OmicX, we combine strong expertise, fast delivery, and clean, professional workflows—giving you one of the
-        most efficient and dependable bioinformatics services in Egypt.
-      </p>
-      
+<section class="hero" data-aos="fade-up">
+  <div class="hero-text">
+    <h1>Advanced Bioinformatics & Omics Analysis</h1>
+    <p>
+      OmicX Labs delivers reproducible, publication-ready bioinformatics solutions
+      across genomics, transcriptomics, metagenomics, and machine learning.
+    </p>
+    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView()">Contact Us</button>
+    <button class="btn btn-secondary" onclick="document.getElementById('services').scrollIntoView()">Our Services</button>
   </div>
 </section>
 
+<section id="services">
+  <h2>Our Bioinformatics Services</h2>
 
-  <!-- Contact Section -->
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact Us</h2>
-    <div class="contact-content">
-      <p>Email: <a href="mailto:omicxlabs@outlook.com">omicxlabs@outlook.com</a></p>
-      <p>WhatsApp: <a href="https://wa.me/201145193462" target="_blank">+201145193462</a></p>
-      <p>Follow us:</p>
-      <a href="https://facebook.com/OmicX.Labs" target="_blank">Facebook</a> | 
-      <a href="https://www.linkedin.com/company/omicx-labs" target="_blank">LinkedIn</a>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <h3>NGS & Metagenomics</h3>
+      <p>Comprehensive analysis from raw sequencing data to biological insights.</p>
+      <ul>
+        <li>QC & preprocessing (FastQC, MultiQC)</li>
+        <li>Taxonomy profiling (Kraken2, MetaPhlAn)</li>
+        <li>Diversity & functional analysis</li>
+        <li>Publication-ready figures</li>
+      </ul>
     </div>
-  </section>
 
-  <footer>
-    &copy; 2025 OmicX Labs | EST. 2025
-  </footer>
+    <div class="service-card">
+      <h3>RNA-Seq & Transcriptomics</h3>
+      <p>Accurate transcriptome profiling for research and clinical studies.</p>
+      <ul>
+        <li>Alignment & quantification</li>
+        <li>Differential expression (DESeq2, edgeR)</li>
+        <li>GO / KEGG / pathway analysis</li>
+      </ul>
+    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
+    <div class="service-card">
+      <h3>Custom Pipelines</h3>
+      <p>Scalable and reproducible workflows tailored to your project.</p>
+      <ul>
+        <li>Nextflow & Snakemake</li>
+        <li>Docker & Conda environments</li>
+        <li>HPC & cloud ready</li>
+      </ul>
+    </div>
 
-    // Close modal when clicking outside content
-    window.onclick = function(event) {
-      const modal = document.getElementById('bookingModal');
-      if (event.target === modal) modal.style.display = "none";
-    }
-  </script>
+    <div class="service-card">
+      <h3>Machine Learning & Biomarkers</h3>
+      <p>Predictive modeling and biomarker discovery from omics data.</p>
+      <ul>
+        <li>Random Forest, XGBoost</li>
+        <li>ROC / AUC validation</li>
+        <li>Feature importance analysis</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h3>Primer Design & In-Silico PCR</h3>
+      <p>High-precision primer design and validation.</p>
+      <ul>
+        <li>Primer3 & Primer-BLAST</li>
+        <li>Specificity & Tm optimization</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h3>Scientific Reports</h3>
+      <p>Clear, structured, and journal-ready documentation.</p>
+      <ul>
+        <li>High-resolution figures</li>
+        <li>Statistical interpretation</li>
+        <li>Full reproducibility</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <h2>About OmicX Labs</h2>
+  <div class="box">
+    OmicX Labs is a Cairo-based bioinformatics team providing fast,
+    reliable, and scientifically rigorous data analysis services.
+    We support researchers, clinicians, and biotech teams with
+    end-to-end omics workflows, ensuring clarity, reproducibility,
+    and publication-grade results.
+  </div>
+</section>
+
+<section id="team">
+  <h2>Our Team</h2>
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="ibraheem.jpg">
+      <h4>Ibraheem Mustafa</h4>
+      <p>Bioinformatics Lead</p>
+    </div>
+    <div class="team-member">
+      <img src="ruth.jpeg">
+      <h4>Ruth Gamal</h4>
+      <p>Neuroscience Researcher</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p style="text-align:center">
+    Email: <a href="mailto:omicxlabs@outlook.com">omicxlabs@outlook.com</a><br>
+    WhatsApp: <a href="https://wa.me/201145193462">+201145193462</a>
+  </p>
+</section>
+
+<footer>
+  © 2025 OmicX Labs — Bioinformatics Solutions
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({duration:1000,once:true});</script>
+
 </body>
 </html>
