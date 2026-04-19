@@ -9,730 +9,159 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #162d5e;
-    --navy-dark: #0e1f42;
-    --navy-mid: #1e3a72;
-    --green: #3a7d34;
-    --green-light: #e8f4e8;
-    --green-mid: #2d6a27;
-    --white: #ffffff;
-    --off-white: #f7f9fc;
-    --border: #e2e8f2;
-    --text-body: #4a5568;
-    --text-muted: #8896a8;
-    --text-light: #a0aec0;
+    --navy: #162d5e; --navy-dark: #0e1f42; --navy-mid: #1e3a72;
+    --green: #3a7d34; --green-light: #e8f4e8; --green-mid: #2d6a27;
+    --off-white: #f7f9fc; --border: #e2e8f2;
+    --text-body: #4a5568; --text-muted: #8896a8; --text-light: #a0aec0;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--navy); background: #fff; overflow-x: hidden; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--navy);
-    background: #fff;
-    overflow-x: hidden;
-  }
-
-  /* ── NAVBAR ── */
+  /* NAVBAR */
   nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.97);
-    backdrop-filter: blur(8px);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
-    padding: 0 48px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 0 48px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-  .nav-logo {
-    width: 46px;
-    height: 46px;
-    object-fit: contain;
-  }
-  .nav-brand-text .brand-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--navy);
-    display: block;
-    line-height: 1.2;
-  }
-  .nav-brand-text .brand-sub {
-    font-size: 10px;
-    color: var(--green);
-    letter-spacing: 0.8px;
-    font-weight: 500;
-  }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-  .nav-links a {
-    text-decoration: none;
-    font-size: 14px;
-    color: var(--text-body);
-    font-weight: 400;
-    transition: color 0.2s;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--green);
-    transition: width 0.25s;
-  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo { width: 46px; height: 46px; object-fit: contain; }
+  .nav-brand-text .brand-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--navy); display: block; line-height: 1.2; }
+  .nav-brand-text .brand-sub { font-size: 10px; color: var(--green); letter-spacing: 0.8px; font-weight: 500; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 14px; color: var(--text-body); font-weight: 400; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: var(--green); transition: width 0.25s; }
   .nav-links a:hover { color: var(--navy); }
   .nav-links a:hover::after { width: 100%; }
-  .nav-cta {
-    background: var(--navy);
-    color: #fff !important;
-    padding: 10px 22px;
-    border-radius: 7px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
+  .nav-cta { background: var(--navy); color: #fff !important; padding: 10px 22px; border-radius: 7px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
   .nav-cta:hover { background: var(--navy-dark); transform: translateY(-1px); }
   .nav-cta::after { display: none !important; }
 
-  /* ── HERO ── */
-  .hero {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    min-height: 560px;
-  }
-  .hero-left {
-    background: var(--off-white);
-    padding: 72px 56px 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .hero-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--green-light);
-    color: var(--green-mid);
-    font-size: 12px;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 20px;
-    margin-bottom: 24px;
-    width: fit-content;
-    animation: fadeUp 0.6s ease both;
-  }
-  .pill-dot {
-    width: 7px;
-    height: 7px;
-    background: var(--green);
-    border-radius: 50%;
-  }
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--navy);
-    margin-bottom: 20px;
-    animation: fadeUp 0.6s 0.1s ease both;
-  }
-  .hero-title em {
-    color: var(--green);
-    font-style: normal;
-  }
-  .hero-p {
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--text-body);
-    max-width: 460px;
-    margin-bottom: 36px;
-    font-weight: 300;
-    animation: fadeUp 0.6s 0.2s ease both;
-  }
-  .hero-btns {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    animation: fadeUp 0.6s 0.3s ease both;
-  }
-  .btn-primary {
-    background: var(--navy);
-    color: #fff;
-    padding: 13px 28px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
+  /* HERO */
+  .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; min-height: 560px; }
+  .hero-left { background: var(--off-white); padding: 72px 56px 64px; display: flex; flex-direction: column; justify-content: center; }
+  .hero-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--green-light); color: var(--green-mid); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 20px; margin-bottom: 24px; width: fit-content; animation: fadeUp 0.6s ease both; }
+  .pill-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: var(--navy); margin-bottom: 20px; animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-title em { color: var(--green); font-style: normal; }
+  .hero-p { font-size: 15px; line-height: 1.8; color: var(--text-body); max-width: 460px; margin-bottom: 36px; font-weight: 300; animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+  .btn-primary { background: var(--navy); color: #fff; padding: 13px 28px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
   .btn-primary:hover { background: var(--navy-dark); transform: translateY(-2px); }
-  .btn-outline {
-    border: 1.5px solid var(--navy);
-    color: var(--navy);
-    padding: 13px 28px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
+  .btn-outline { border: 1.5px solid var(--navy); color: var(--navy); padding: 13px 28px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
   .btn-outline:hover { background: var(--off-white); transform: translateY(-2px); }
-
-  .hero-right {
-    background: var(--navy);
-    padding: 48px 44px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 18px;
-  }
-  .hero-stat {
-    background: var(--navy-mid);
-    border-radius: 12px;
-    padding: 20px 24px;
-    animation: fadeUp 0.5s ease both;
-  }
+  .hero-right { background: var(--navy); padding: 48px 44px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+  .hero-stat { background: var(--navy-mid); border-radius: 12px; padding: 20px 24px; animation: fadeUp 0.5s ease both; }
   .hero-stat:nth-child(1) { animation-delay: 0.15s; }
   .hero-stat:nth-child(2) { animation-delay: 0.25s; }
   .hero-stat:nth-child(3) { animation-delay: 0.35s; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-label {
-    font-size: 12px;
-    color: #8faad4;
-    font-weight: 300;
-  }
-  .stat-bar-track {
-    height: 3px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 2px;
-    margin-top: 12px;
-    overflow: hidden;
-  }
-  .stat-bar-fill {
-    height: 100%;
-    background: var(--green);
-    border-radius: 2px;
-    transition: width 1.2s ease;
-  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #fff; line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 12px; color: #8faad4; font-weight: 300; }
+  .stat-bar-track { height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 12px; overflow: hidden; }
+  .stat-bar-fill { height: 100%; background: var(--green); border-radius: 2px; }
 
-  /* ── TRUST BAR ── */
-  .trust-bar {
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    padding: 22px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .trust-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--green-light);
-    border-radius: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
+  /* TRUST BAR */
+  .trust-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 22px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .trust-item { display: flex; align-items: center; gap: 12px; }
+  .trust-icon { width: 36px; height: 36px; background: var(--green-light); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .trust-icon svg { width: 16px; height: 16px; }
-  .trust-txt strong {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--navy);
-  }
-  .trust-txt span {
-    font-size: 11px;
-    color: var(--text-muted);
-  }
-  .trust-div {
-    width: 1px;
-    height: 40px;
-    background: var(--border);
-  }
+  .trust-txt strong { display: block; font-size: 13px; font-weight: 500; color: var(--navy); }
+  .trust-txt span { font-size: 11px; color: var(--text-muted); }
+  .trust-div { width: 1px; height: 40px; background: var(--border); }
 
-  /* ── SECTIONS ── */
-  section {
-    padding: 64px 48px;
-  }
+  /* SECTIONS */
+  section { padding: 64px 48px; }
   section.alt { background: var(--off-white); }
-
-  .sec-eyebrow {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--green);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .sec-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-  .sec-sub {
-    font-size: 14px;
-    color: var(--text-body);
-    line-height: 1.7;
-    max-width: 520px;
-    font-weight: 300;
-  }
-  .sec-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 36px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .sec-link {
-    font-size: 13px;
-    color: var(--navy);
-    text-decoration: none;
-    border-bottom: 1px solid var(--navy);
-    padding-bottom: 1px;
-    white-space: nowrap;
-    transition: color 0.2s;
-  }
+  .sec-eyebrow { font-size: 11px; font-weight: 600; color: var(--green); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .sec-title { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .sec-sub { font-size: 14px; color: var(--text-body); line-height: 1.7; max-width: 520px; font-weight: 300; }
+  .sec-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+  .sec-link { font-size: 13px; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--navy); padding-bottom: 1px; white-space: nowrap; transition: color 0.2s; }
   .sec-link:hover { color: var(--green); border-color: var(--green); }
 
-  /* ── SERVICES ── */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .svc-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 22px;
-    transition: border-color 0.25s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .svc-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--navy);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .svc-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 22px; transition: border-color 0.25s, transform 0.2s; position: relative; overflow: hidden; }
+  .svc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--navy); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
   .svc-card:nth-child(even)::before { background: var(--green); }
   .svc-card:hover::before { transform: scaleX(1); }
   .svc-card:hover { border-color: #c8d4e8; transform: translateY(-3px); }
-  .svc-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--border);
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .svc-title {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-  .svc-desc {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-  .svc-tools {
-    display: inline-block;
-    background: var(--green-light);
-    color: var(--green-mid);
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    padding: 3px 9px;
-    border-radius: 10px;
-    margin-top: 14px;
-  }
+  .svc-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--border); line-height: 1; margin-bottom: 12px; }
+  .svc-title { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 8px; }
+  .svc-desc { font-size: 12px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+  .svc-tools { display: inline-block; background: var(--green-light); color: var(--green-mid); font-size: 10px; font-family: 'DM Mono', monospace; padding: 3px 9px; border-radius: 10px; margin-top: 14px; }
 
-  /* ── PROJECTS ── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
-  .proj-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    transition: border-color 0.25s, transform 0.2s;
-    position: relative;
-  }
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .proj-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: border-color 0.25s, transform 0.2s; position: relative; text-decoration: none; color: inherit; display: block; }
   .proj-card:hover { border-color: #c8d4e8; transform: translateY(-3px); }
   .proj-card.featured { border-left: 4px solid var(--green); }
-  .proj-badge {
-    display: inline-block;
-    background: var(--green-light);
-    color: var(--green-mid);
-    font-size: 10px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 10px;
-    margin-bottom: 12px;
-  }
-  .proj-cat {
-    font-size: 10px;
-    color: var(--text-light);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    font-family: 'DM Mono', monospace;
-  }
-  .proj-title {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-  .proj-desc {
-    font-size: 12px;
-    color: var(--text-body);
-    line-height: 1.7;
-    margin-bottom: 16px;
-    font-weight: 300;
-  }
-  .proj-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .proj-tag {
-    background: #f0f4fb;
-    color: var(--navy);
-    font-size: 10px;
-    padding: 3px 9px;
-    border-radius: 4px;
-    border: 0.5px solid #d4dcee;
-    font-family: 'DM Mono', monospace;
-  }
-  .proj-empty {
-    border: 2px dashed #d4dcee;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 160px;
-    gap: 10px;
-  }
-  .proj-empty-circle {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #f0f4fb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .proj-empty-circle::after {
-    content: '+';
-    font-size: 20px;
-    color: #c8d4e8;
-    font-weight: 300;
-  }
-  .proj-empty p {
-    font-size: 13px;
-    color: var(--text-light);
-  }
+  .proj-badge { display: inline-block; background: var(--green-light); color: var(--green-mid); font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 10px; margin-bottom: 12px; }
+  .proj-github-icon { position: absolute; top: 18px; right: 18px; color: var(--text-muted); opacity: 0; transition: opacity 0.2s; }
+  .proj-card:hover .proj-github-icon { opacity: 1; color: var(--navy); }
+  .proj-cat { font-size: 10px; color: var(--text-light); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px; font-family: 'DM Mono', monospace; }
+  .proj-title { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 10px; line-height: 1.4; }
+  .proj-desc { font-size: 12px; color: var(--text-body); line-height: 1.7; margin-bottom: 16px; font-weight: 300; }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .proj-tag { background: #f0f4fb; color: var(--navy); font-size: 10px; padding: 3px 9px; border-radius: 4px; border: 0.5px solid #d4dcee; font-family: 'DM Mono', monospace; }
+  .proj-empty { border: 2px dashed #d4dcee; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 160px; gap: 10px; }
+  .proj-empty-circle { width: 36px; height: 36px; border-radius: 50%; background: #f0f4fb; display: flex; align-items: center; justify-content: center; }
+  .proj-empty-circle::after { content: '+'; font-size: 20px; color: #c8d4e8; font-weight: 300; }
+  .proj-empty p { font-size: 13px; color: var(--text-light); }
 
-  /* ── TEAM ── */
+  /* TEAM */
   .team-group { margin-bottom: 48px; }
   .team-group:last-child { margin-bottom: 0; }
-  .team-group-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--green);
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-  }
-  .team-grid {
-    display: grid;
-    gap: 16px;
-  }
+  .team-group-label { font-size: 11px; font-weight: 600; color: var(--green); letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .team-grid { display: grid; gap: 16px; }
   .team-grid.management { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
-  .team-grid.technical  { grid-template-columns: repeat(4, 1fr); }
+  .team-grid.technical  { grid-template-columns: repeat(5, 1fr); }
   .team-grid.marketing  { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
-  .team-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 18px;
-    text-align: center;
-    transition: border-color 0.25s, transform 0.2s;
-  }
+  .team-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 24px 18px; text-align: center; transition: border-color 0.25s, transform 0.2s; }
   .team-card:hover { border-color: #c8d4e8; transform: translateY(-3px); }
-  .avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 0 auto 14px;
-    object-fit: cover;
-    border: 2px solid var(--border);
-    display: block;
-    background: #e6edf8;
-  }
-  .avatar-initials {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 0 auto 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 700;
-    background: #e6edf8;
-    color: var(--navy);
-    border: 2px solid var(--border);
-  }
+  .team-card-link { text-decoration: none; cursor: pointer; display: block; }
+  .avatar { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 14px; object-fit: cover; border: 2px solid var(--border); display: block; background: #e6edf8; }
+  .avatar-initials { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; background: #e6edf8; color: var(--navy); border: 2px solid var(--border); }
   .avatar-initials.green { background: var(--green-light); color: var(--green-mid); }
   .team-grid.technical .avatar,
   .team-grid.technical .avatar-initials { width: 64px; height: 64px; font-size: 16px; }
-  .member-name {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 5px;
-  }
-  .member-role {
-    font-size: 11px;
-    color: var(--text-muted);
-    line-height: 1.5;
-    font-weight: 300;
-  }
-  .member-badge {
-    display: inline-block;
-    background: #f0f4fb;
-    color: var(--navy);
-    font-size: 9px;
-    padding: 3px 8px;
-    border-radius: 8px;
-    margin-top: 8px;
-  }
+  .member-name { font-size: 13px; font-weight: 500; color: var(--navy); margin-bottom: 5px; }
+  .member-role { font-size: 11px; color: var(--text-muted); line-height: 1.5; font-weight: 300; }
+  .github-chip { display: inline-flex; align-items: center; gap: 5px; background: #f0f4fb; color: var(--navy); font-size: 10px; padding: 3px 9px; border-radius: 8px; margin-top: 10px; border: 0.5px solid #d4dcee; transition: background 0.2s, color 0.2s; }
+  .team-card-link:hover .github-chip { background: var(--navy); color: #fff; border-color: var(--navy); }
 
-  /* ── CTA BAND ── */
-  .cta-band {
-    background: var(--navy);
-    padding: 64px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-  .cta-copy .cta-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  .cta-copy .cta-sub {
-    font-size: 14px;
-    color: #8faad4;
-    line-height: 1.7;
-    font-weight: 300;
-    max-width: 440px;
-  }
-  .cta-contacts {
-    display: flex;
-    gap: 28px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-  }
-  .cta-contact-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .cta-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .cta-contact-item span {
-    font-size: 13px;
-    color: #8faad4;
-  }
-  .cta-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    min-width: 210px;
-  }
-  .cta-btn-green {
-    background: var(--green);
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    text-align: center;
-    transition: background 0.2s, transform 0.15s;
-    display: block;
-  }
+  /* CTA */
+  .cta-band { background: var(--navy); padding: 64px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .cta-copy .cta-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .cta-copy .cta-sub { font-size: 14px; color: #8faad4; line-height: 1.7; font-weight: 300; max-width: 440px; }
+  .cta-contacts { display: flex; gap: 28px; margin-top: 20px; flex-wrap: wrap; }
+  .cta-contact-item { display: flex; align-items: center; gap: 8px; }
+  .cta-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+  .cta-contact-item span { font-size: 13px; color: #8faad4; }
+  .cta-actions { display: flex; flex-direction: column; gap: 12px; min-width: 210px; }
+  .cta-btn-green { background: var(--green); color: #fff; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; text-align: center; transition: background 0.2s, transform 0.15s; display: block; }
   .cta-btn-green:hover { background: var(--green-mid); transform: translateY(-2px); }
-  .cta-btn-outline-w {
-    border: 1.5px solid rgba(255,255,255,0.3);
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-size: 14px;
-    text-decoration: none;
-    text-align: center;
-    transition: background 0.2s, transform 0.15s;
-    display: block;
-  }
+  .cta-btn-outline-w { border: 1.5px solid rgba(255,255,255,0.3); color: #fff; padding: 14px 28px; border-radius: 8px; font-size: 14px; text-decoration: none; text-align: center; transition: background 0.2s, transform 0.15s; display: block; }
   .cta-btn-outline-w:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #f0f4f8;
-    border-top: 1px solid var(--border);
-    padding: 22px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
+  /* FOOTER */
+  footer { background: #f0f4f8; border-top: 1px solid var(--border); padding: 22px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .footer-logo { width: 28px; height: 28px; object-fit: contain; }
-  .footer-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--navy);
-  }
+  .footer-name { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--navy); }
   .footer-copy { font-size: 12px; color: var(--text-muted); }
   .footer-links { display: flex; gap: 18px; }
-  .footer-links a {
-    font-size: 12px;
-    color: var(--text-body);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+  .footer-links a { font-size: 12px; color: var(--text-body); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--navy); }
 
-  /* ── GITHUB CHIP & LINK CARDS ── */
-  .github-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: #f0f4fb;
-    color: var(--navy);
-    font-size: 10px;
-    padding: 3px 9px;
-    border-radius: 8px;
-    margin-top: 10px;
-    border: 0.5px solid #d4dcee;
-    transition: background 0.2s, color 0.2s;
-  }
-  .team-card-link {
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .team-card-link:hover .github-chip {
-    background: var(--navy);
-    color: #fff;
-    border-color: var(--navy);
-  }
-  .proj-card {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    position: relative;
-  }
-  .proj-github-icon {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    color: var(--text-muted);
-    opacity: 0;
-    transition: opacity 0.2s, color 0.2s;
-  }
-  .proj-card:hover .proj-github-icon {
-    opacity: 1;
-    color: var(--navy);
-  }
-  .proj-card[href]:hover {
-    border-color: #c8d4e8;
-    transform: translateY(-3px);
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
-  }
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
     .nav-links { display: none; }
@@ -776,18 +205,9 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-left">
-    <div class="hero-pill">
-      <span class="pill-dot"></span>
-      Cairo, Egypt &nbsp;·&nbsp; Est. 2025
-    </div>
-    <h1 class="hero-title">
-      Next-gen<br><em>bioinformatics</em><br>for your research
-    </h1>
-    <p class="hero-p">
-      We transform raw NGS, RNA-seq, and metagenomic data into actionable insights
-      using custom pipelines, ML/AI models, and reproducible workflows — built for
-      researchers, academics, and clinicians.
-    </p>
+    <div class="hero-pill"><span class="pill-dot"></span> Cairo, Egypt &nbsp;·&nbsp; Est. 2025</div>
+    <h1 class="hero-title">Next-gen<br><em>bioinformatics</em><br>for your research</h1>
+    <p class="hero-p">We transform raw NGS, RNA-seq, and metagenomic data into actionable insights using custom pipelines, ML/AI models, and reproducible workflows — built for researchers, academics, and clinicians.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-primary">Book a service</a>
       <a href="#projects" class="btn-outline">View our projects</a>
@@ -815,43 +235,23 @@
 <!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-item">
-    <div class="trust-icon">
-      <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#3a7d34" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#3a7d34" stroke-width="1.5" stroke-linecap="round"/></svg>
-    </div>
-    <div class="trust-txt">
-      <strong>6 team members</strong>
-      <span>MSc candidates & specialists</span>
-    </div>
+    <div class="trust-icon"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#3a7d34" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#3a7d34" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="trust-txt"><strong>7 team members</strong><span>MSc candidates & specialists</span></div>
   </div>
   <div class="trust-div"></div>
   <div class="trust-item">
-    <div class="trust-icon">
-      <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v4l3 2" stroke="#3a7d34" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="6" stroke="#3a7d34" stroke-width="1.5"/></svg>
-    </div>
-    <div class="trust-txt">
-      <strong>Fast delivery</strong>
-      <span>Speed, accuracy & clarity</span>
-    </div>
+    <div class="trust-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M8 2v4l3 2" stroke="#3a7d34" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="6" stroke="#3a7d34" stroke-width="1.5"/></svg></div>
+    <div class="trust-txt"><strong>Fast delivery</strong><span>Speed, accuracy & clarity</span></div>
   </div>
   <div class="trust-div"></div>
   <div class="trust-item">
-    <div class="trust-icon">
-      <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#3a7d34" stroke-width="1.5"/><path d="M5 4V3a3 3 0 016 0v1" stroke="#3a7d34" stroke-width="1.5"/></svg>
-    </div>
-    <div class="trust-txt">
-      <strong>End-to-end analysis</strong>
-      <span>From raw data to publication</span>
-    </div>
+    <div class="trust-icon"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#3a7d34" stroke-width="1.5"/><path d="M5 4V3a3 3 0 016 0v1" stroke="#3a7d34" stroke-width="1.5"/></svg></div>
+    <div class="trust-txt"><strong>End-to-end analysis</strong><span>From raw data to publication</span></div>
   </div>
   <div class="trust-div"></div>
   <div class="trust-item">
-    <div class="trust-icon">
-      <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3v10" stroke="#3a7d34" stroke-width="1.5" stroke-linecap="round"/></svg>
-    </div>
-    <div class="trust-txt">
-      <strong>Reproducible workflows</strong>
-      <span>Snakemake · Nextflow · R</span>
-    </div>
+    <div class="trust-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3v10" stroke="#3a7d34" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="trust-txt"><strong>Reproducible workflows</strong><span>Snakemake · Nextflow · R</span></div>
   </div>
 </div>
 
@@ -935,47 +335,30 @@
   <div class="projects-grid">
     <a class="proj-card featured fade-up" href="https://github.com/Mohamed-S-AboHoussien/Gut-Bacterial-Dynamics-in-Spodoptera-littoralis" target="_blank">
       <span class="proj-badge">Featured</span>
-      <div class="proj-github-icon">
-        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      </div>
+      <div class="proj-github-icon"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></div>
       <div class="proj-cat">Metagenomics · 16S rRNA</div>
       <div class="proj-title">Gut microbiome profiling — Spodoptera littoralis</div>
       <div class="proj-desc">Alpha/beta diversity analysis, taxonomic composition, and DESeq2 differential abundance across treatment groups. Full report with embedded figures.</div>
       <div class="proj-tags">
-        <span class="proj-tag">QIIME2</span>
-        <span class="proj-tag">phyloseq</span>
-        <span class="proj-tag">DESeq2</span>
-        <span class="proj-tag">vegan</span>
-        <span class="proj-tag">R</span>
+        <span class="proj-tag">QIIME2</span><span class="proj-tag">phyloseq</span><span class="proj-tag">DESeq2</span><span class="proj-tag">vegan</span><span class="proj-tag">R</span>
       </div>
     </a>
     <a class="proj-card fade-up" href="https://github.com/IbraheemMustafaAly/Parkinson-Multiomics-DataAnalysis" target="_blank">
-      <div class="proj-github-icon">
-        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      </div>
+      <div class="proj-github-icon"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></div>
       <div class="proj-cat">Transcriptomics · Microarray</div>
       <div class="proj-title">Parkinson's disease gene expression analysis</div>
       <div class="proj-desc">QC, PCA (2D/3D), variance-based gene filtering, and heatmap visualization to identify top neurodegeneration markers from public GEO data.</div>
       <div class="proj-tags">
-        <span class="proj-tag">R</span>
-        <span class="proj-tag">ComplexHeatmap</span>
-        <span class="proj-tag">limma</span>
-        <span class="proj-tag">GEO</span>
+        <span class="proj-tag">R</span><span class="proj-tag">ComplexHeatmap</span><span class="proj-tag">limma</span><span class="proj-tag">GEO</span>
       </div>
     </a>
     <a class="proj-card fade-up" href="https://github.com/IbraheemMustafaAly/Clinical-Genomics-Pipeline" target="_blank">
-      <div class="proj-github-icon">
-        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      </div>
+      <div class="proj-github-icon"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></div>
       <div class="proj-cat">Genomics · Variant Calling</div>
       <div class="proj-title">WES-style variant calling pipeline — chr22</div>
       <div class="proj-desc">End-to-end FASTQ to annotated VCF using GATK4 HaplotypeCaller on synthetic chr22 data with clinical interpretation via Franklin by Genoox.</div>
       <div class="proj-tags">
-        <span class="proj-tag">GATK4</span>
-        <span class="proj-tag">BWA-MEM</span>
-        <span class="proj-tag">SAMtools</span>
-        <span class="proj-tag">Trimmomatic</span>
-        <span class="proj-tag">FastQC</span>
+        <span class="proj-tag">GATK4</span><span class="proj-tag">BWA-MEM</span><span class="proj-tag">SAMtools</span><span class="proj-tag">Trimmomatic</span><span class="proj-tag">FastQC</span>
       </div>
     </a>
     <div class="proj-empty fade-up">
@@ -1000,18 +383,12 @@
     <div class="team-group-label">Management team</div>
     <div class="team-grid management">
       <div class="team-card">
-        <img class="avatar"
-             src="https://omicx-labs.github.io/OmicX.github.io/ibraheem.jpg"
-             alt="Ibraheem Mustafa"
-             onerror="this.outerHTML='<div class=\'avatar-initials\'>IM</div>'">
+        <img class="avatar" src="https://omicx-labs.github.io/OmicX.github.io/ibraheem.jpg" alt="Ibraheem Mustafa" onerror="this.outerHTML='<div class=&quot;avatar-initials&quot;>IM</div>'">
         <div class="member-name">Ibraheem Mustafa</div>
         <div class="member-role">Co-Founder<br>MSc Candidate in Bioinformatics<br>Field Application Specialist</div>
       </div>
       <div class="team-card">
-        <img class="avatar"
-             src="https://omicx-labs.github.io/OmicX.github.io/ruth.jpeg"
-             alt="Ruth Gamal"
-             onerror="this.outerHTML='<div class=\'avatar-initials green\'>RG</div>'">
+        <img class="avatar" src="https://omicx-labs.github.io/OmicX.github.io/ruth.jpeg" alt="Ruth Gamal" onerror="this.outerHTML='<div class=&quot;avatar-initials green&quot;>RG</div>'">
         <div class="member-name">Ruth Gamal</div>
         <div class="member-role">Co-Founder<br>MSc Candidate in Neuroscience<br>Project Manager</div>
       </div>
@@ -1022,11 +399,9 @@
   <div class="team-group fade-up">
     <div class="team-group-label">Technical team</div>
     <div class="team-grid technical">
+
       <a class="team-card team-card-link" href="https://github.com/IbraheemMustafaAly" target="_blank">
-        <img class="avatar"
-             src="https://omicx-labs.github.io/OmicX.github.io/ibraheem.jpg"
-             alt="Ibraheem Mustafa"
-             onerror="this.outerHTML='<div class=\'avatar-initials\'>IM</div>'">
+        <img class="avatar" src="https://omicx-labs.github.io/OmicX.github.io/ibraheem.jpg" alt="Ibraheem Mustafa" onerror="this.outerHTML='<div class=&quot;avatar-initials&quot;>IM</div>'">
         <div class="member-name">Ibraheem Mustafa</div>
         <div class="member-role">MSc Candidate in Bioinformatics<br>Field Application Specialist</div>
         <span class="github-chip">
@@ -1034,19 +409,15 @@
           GitHub profile
         </span>
       </a>
+
       <div class="team-card">
-        <img class="avatar"
-             src="https://omicx-labs.github.io/OmicX.github.io/ruth.jpeg"
-             alt="Ruth Gamal"
-             onerror="this.outerHTML='<div class=\'avatar-initials green\'>RG</div>'">
+        <img class="avatar" src="https://omicx-labs.github.io/OmicX.github.io/ruth.jpeg" alt="Ruth Gamal" onerror="this.outerHTML='<div class=&quot;avatar-initials green&quot;>RG</div>'">
         <div class="member-name">Ruth Gamal</div>
-        <div class="member-role">MSc Candidate in Neuroscience<br>Project Manager
+        <div class="member-role">MSc Candidate in Neuroscience<br>Project Manager</div>
       </div>
+
       <a class="team-card team-card-link" href="https://github.com/Mohamed-S-AboHoussien" target="_blank">
-        <img class="avatar"
-             src="https://omicx-labs.github.io/OmicX.github.io/mohamed_s.jpeg"
-             alt="Mohamed S. Abo Hussein"
-             onerror="this.outerHTML='<div class=\'avatar-initials\'>MA</div>'">
+        <img class="avatar" src="https://omicx-labs.github.io/OmicX.github.io/mohamed_s.jpeg" alt="Mohamed S. Abo Hussein" onerror="this.outerHTML='<div class=&quot;avatar-initials&quot;>MA</div>'">
         <div class="member-name">Mohamed S. Abo Hussein</div>
         <div class="member-role">MSc Candidate in Bioinformatics<br>Lab Supervisor · GU</div>
         <span class="github-chip">
@@ -1054,11 +425,9 @@
           GitHub profile
         </span>
       </a>
+
       <a class="team-card team-card-link" href="https://github.com/fatmafathi-bio" target="_blank">
-        <img class="avatar"
-             src="https://omicx-labs.github.io/OmicX.github.io/fatma.jpeg"
-             alt="Fatma Fathi"
-             onerror="this.outerHTML='<div class=\'avatar-initials green\'>FF</div>'">
+        <img class="avatar" src="https://omicx-labs.github.io/OmicX.github.io/fatma.jpeg" alt="Fatma Fathi" onerror="this.outerHTML='<div class=&quot;avatar-initials green&quot;>FF</div>'">
         <div class="member-name">Fatma Fathi</div>
         <div class="member-role">MSc Candidate<br>in Bioinformatics</div>
         <span class="github-chip">
@@ -1066,13 +435,13 @@
           GitHub profile
         </span>
       </a>
-       <div class="team-card">
-        <img class="avatar"
-             src="https://omicx-labs.github.io/OmicX.github.io/amr.jpeg"
-             alt="Amr Gad"
-             onerror="this.outerHTML='<div class=\'avatar-initials green\'>RG</div>'">
+
+      <div class="team-card">
+        <img class="avatar" src="https://omicx-labs.github.io/OmicX.github.io/amr.jpeg" alt="Amr Gad" onerror="this.outerHTML='<div class=&quot;avatar-initials&quot;>AG</div>'">
         <div class="member-name">Amr Gad</div>
-        <div class="member-role">MSc Candidate in Neuroscience<br>Neurodevelopmental Genetics Research Fellow<br>National Research Center NRC</div>>
+        <div class="member-role">MSc Candidate in Neuroscience<br>Neurodevelopmental Genetics Research Fellow<br>National Research Center NRC</div>
+      </div>
+
     </div>
   </div>
 
@@ -1081,38 +450,30 @@
     <div class="team-group-label">Marketing team</div>
     <div class="team-grid marketing">
       <div class="team-card">
-        <img class="avatar"
-             src="https://omicx-labs.github.io/OmicX.github.io/hossam.jpeg"
-             alt="Hossam Banna"
-             onerror="this.outerHTML='<div class=\'avatar-initials\'>HB</div>'">
+        <img class="avatar" src="https://omicx-labs.github.io/OmicX.github.io/hossam.jpeg" alt="Hossam Banna" onerror="this.outerHTML='<div class=&quot;avatar-initials&quot;>HB</div>'">
         <div class="member-name">Hossam Banna</div>
         <div class="member-role">Senior Account Manager</div>
       </div>
       <div class="team-card">
-        <img class="avatar"
-             src="https://omicx-labs.github.io/OmicX.github.io/nouran1.jpeg"
-             alt="Nouran Mahmoud"
-             onerror="this.outerHTML='<div class=\'avatar-initials green\'>NM</div>'">
+        <img class="avatar" src="https://omicx-labs.github.io/OmicX.github.io/nouran1.jpeg" alt="Nouran Mahmoud" onerror="this.outerHTML='<div class=&quot;avatar-initials green&quot;>NM</div>'">
         <div class="member-name">Nouran Mahmoud</div>
         <div class="member-role">Senior Account Manager</div>
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="fade-up" style="max-width: 720px; margin: 0 auto; text-align: center;">
+  <div class="fade-up" style="max-width:720px; margin:0 auto; text-align:center;">
     <div class="sec-eyebrow" style="text-align:center">About OmicX Labs</div>
     <div class="sec-title" style="text-align:center; margin-bottom:18px">Fast, flexible & highly skilled</div>
     <p style="font-size:15px; color:var(--text-body); line-height:1.85; font-weight:300;">
-      OmicX Labs is a freelance bioinformatics team based in Cairo, Egypt. We provide end-to-end data analysis
-      solutions across genomics, transcriptomics, metagenomics, RNA-seq, NGS workflows, primer design,
-      machine learning, and AI-driven pipelines.
+      OmicX Labs is a freelance bioinformatics team based in Cairo, Egypt. We provide end-to-end data analysis solutions across genomics, transcriptomics, metagenomics, RNA-seq, NGS workflows, primer design, machine learning, and AI-driven pipelines.
     </p>
     <p style="font-size:15px; color:var(--text-body); line-height:1.85; font-weight:300; margin-top:16px;">
-      Our workflow is built for speed, accuracy, and clarity. Every project is reviewed by specialized consultants
-      to ensure high-quality, publication-ready results for researchers, academics, clinicians, and pharmaceutical teams.
+      Our workflow is built for speed, accuracy, and clarity. Every project is reviewed by specialized consultants to ensure high-quality, publication-ready results for researchers, academics, clinicians, and pharmaceutical teams.
     </p>
   </div>
 </section>
@@ -1123,14 +484,8 @@
     <div class="cta-title">Ready to start your analysis?</div>
     <div class="cta-sub">One of the most efficient and dependable bioinformatics services in Egypt — fast delivery, clean workflows, and publication-ready results.</div>
     <div class="cta-contacts">
-      <div class="cta-contact-item">
-        <div class="cta-dot"></div>
-        <span>omicxlabs@outlook.com</span>
-      </div>
-      <div class="cta-contact-item">
-        <div class="cta-dot"></div>
-        <span>WhatsApp +20 114 519 3462</span>
-      </div>
+      <div class="cta-contact-item"><div class="cta-dot"></div><span>omicxlabs@outlook.com</span></div>
+      <div class="cta-contact-item"><div class="cta-dot"></div><span>WhatsApp +20 114 519 3462</span></div>
     </div>
   </div>
   <div class="cta-actions">
@@ -1161,9 +516,7 @@
       }
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
