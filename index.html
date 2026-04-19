@@ -485,34 +485,61 @@
   }
 
   /* ── TEAM ── */
+  .team-group { margin-bottom: 48px; }
+  .team-group:last-child { margin-bottom: 0; }
+  .team-group-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--green);
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
+    gap: 16px;
   }
+  .team-grid.management { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
+  .team-grid.technical  { grid-template-columns: repeat(4, 1fr); }
+  .team-grid.marketing  { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
   .team-card {
     background: #fff;
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 22px 16px;
+    padding: 24px 18px;
     text-align: center;
     transition: border-color 0.25s, transform 0.2s;
   }
   .team-card:hover { border-color: #c8d4e8; transform: translateY(-3px); }
   .avatar {
-    width: 52px;
-    height: 52px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    display: block;
+    background: #e6edf8;
+  }
+  .avatar-initials {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     margin: 0 auto 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 700;
     background: #e6edf8;
     color: var(--navy);
+    border: 2px solid var(--border);
   }
-  .avatar.green { background: var(--green-light); color: var(--green-mid); }
+  .avatar-initials.green { background: var(--green-light); color: var(--green-mid); }
+  .team-grid.technical .avatar,
+  .team-grid.technical .avatar-initials { width: 64px; height: 64px; font-size: 16px; }
   .member-name {
     font-size: 13px;
     font-weight: 500;
@@ -671,7 +698,9 @@
     section { padding: 48px 24px; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .projects-grid { grid-template-columns: 1fr; }
-    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-grid.management,
+    .team-grid.technical,
+    .team-grid.marketing { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
     .cta-band { padding: 48px 24px; }
     .cta-actions { min-width: 100%; }
     footer { padding: 18px 24px; }
@@ -892,30 +921,89 @@
       <div class="sec-sub">A multidisciplinary team of bioinformaticians, neuroscientists, and data analysts based in Cairo.</div>
     </div>
   </div>
-  <div class="team-grid">
-    <div class="team-card fade-up">
-      <div class="avatar">IM</div>
-      <div class="member-name">Ibraheem Mustafa</div>
-      <div class="member-role">Co-Founder<br>Bioinformatics · FAS</div>
-      <span class="member-badge">MSc Candidate</span>
+
+  <!-- Management -->
+  <div class="team-group fade-up">
+    <div class="team-group-label">Management team</div>
+    <div class="team-grid management">
+      <div class="team-card">
+        <img class="avatar"
+             src="https://omicx-labs.github.io/OmicX.github.io/ibraheem.jpg"
+             alt="Ibraheem Mustafa"
+             onerror="this.outerHTML='<div class=\'avatar-initials\'>IM</div>'">
+        <div class="member-name">Ibraheem Mustafa</div>
+        <div class="member-role">Co-Founder<br>MSc Candidate in Bioinformatics<br>Field Application Specialist</div>
+      </div>
+      <div class="team-card">
+        <img class="avatar"
+             src="https://omicx-labs.github.io/OmicX.github.io/ruth.jpeg"
+             alt="Ruth Gamal"
+             onerror="this.outerHTML='<div class=\'avatar-initials green\'>RG</div>'">
+        <div class="member-name">Ruth Gamal</div>
+        <div class="member-role">Co-Founder<br>MSc Candidate in Neuroscience<br>Project Manager</div>
+      </div>
     </div>
-    <div class="team-card fade-up">
-      <div class="avatar green">RG</div>
-      <div class="member-name">Ruth Gamal</div>
-      <div class="member-role">Co-Founder<br>Neuroscience · PM</div>
-      <span class="member-badge">MSc Candidate</span>
+  </div>
+
+  <!-- Technical -->
+  <div class="team-group fade-up">
+    <div class="team-group-label">Technical team</div>
+    <div class="team-grid technical">
+      <div class="team-card">
+        <img class="avatar"
+             src="https://omicx-labs.github.io/OmicX.github.io/ibraheem.jpg"
+             alt="Ibraheem Mustafa"
+             onerror="this.outerHTML='<div class=\'avatar-initials\'>IM</div>'">
+        <div class="member-name">Ibraheem Mustafa</div>
+        <div class="member-role">MSc Candidate<br>in Bioinformatics</div>
+      </div>
+      <div class="team-card">
+        <img class="avatar"
+             src="https://omicx-labs.github.io/OmicX.github.io/ruth.jpeg"
+             alt="Ruth Gamal"
+             onerror="this.outerHTML='<div class=\'avatar-initials green\'>RG</div>'">
+        <div class="member-name">Ruth Gamal</div>
+        <div class="member-role">MSc Candidate<br>in Neuroscience</div>
+      </div>
+      <div class="team-card">
+        <img class="avatar"
+             src="https://omicx-labs.github.io/OmicX.github.io/mohamed_s.jpeg"
+             alt="Mohamed S. Abo Hussein"
+             onerror="this.outerHTML='<div class=\'avatar-initials\'>MA</div>'">
+        <div class="member-name">Mohamed S. Abo Hussein</div>
+        <div class="member-role">MSc Candidate in Bioinformatics<br>Lab Supervisor · GU</div>
+      </div>
+      <div class="team-card">
+        <img class="avatar"
+             src="https://omicx-labs.github.io/OmicX.github.io/fatma.jpeg"
+             alt="Fatma Fathi"
+             onerror="this.outerHTML='<div class=\'avatar-initials green\'>FF</div>'">
+        <div class="member-name">Fatma Fathi</div>
+        <div class="member-role">MSc Candidate<br>in Bioinformatics</div>
+      </div>
     </div>
-    <div class="team-card fade-up">
-      <div class="avatar">MA</div>
-      <div class="member-name">Mohamed S. Abo Hussein</div>
-      <div class="member-role">Technical Team<br>Lab Supervisor · GU</div>
-      <span class="member-badge">MSc Candidate</span>
-    </div>
-    <div class="team-card fade-up">
-      <div class="avatar green">FF</div>
-      <div class="member-name">Fatma Fathi</div>
-      <div class="member-role">Technical Team<br>Bioinformatics</div>
-      <span class="member-badge">MSc Candidate</span>
+  </div>
+
+  <!-- Marketing -->
+  <div class="team-group fade-up">
+    <div class="team-group-label">Marketing team</div>
+    <div class="team-grid marketing">
+      <div class="team-card">
+        <img class="avatar"
+             src="https://omicx-labs.github.io/OmicX.github.io/hossam.jpeg"
+             alt="Hossam Banna"
+             onerror="this.outerHTML='<div class=\'avatar-initials\'>HB</div>'">
+        <div class="member-name">Hossam Banna</div>
+        <div class="member-role">Senior Account Manager</div>
+      </div>
+      <div class="team-card">
+        <img class="avatar"
+             src="https://omicx-labs.github.io/OmicX.github.io/nouran1.jpeg"
+             alt="Nouran Mahmoud"
+             onerror="this.outerHTML='<div class=\'avatar-initials green\'>NM</div>'">
+        <div class="member-name">Nouran Mahmoud</div>
+        <div class="member-role">Senior Account Manager</div>
+      </div>
     </div>
   </div>
 </section>
