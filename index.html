@@ -674,6 +674,52 @@
   }
   .footer-links a:hover { color: var(--navy); }
 
+  /* ── GITHUB CHIP & LINK CARDS ── */
+  .github-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #f0f4fb;
+    color: var(--navy);
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 0.5px solid #d4dcee;
+    transition: background 0.2s, color 0.2s;
+  }
+  .team-card-link {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .team-card-link:hover .github-chip {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+  }
+  .proj-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+  }
+  .proj-github-icon {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    color: var(--text-muted);
+    opacity: 0;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .proj-card:hover .proj-github-icon {
+    opacity: 1;
+    color: var(--navy);
+  }
+  .proj-card[href]:hover {
+    border-color: #c8d4e8;
+    transform: translateY(-3px);
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
@@ -749,7 +795,7 @@
   </div>
   <div class="hero-right">
     <div class="hero-stat">
-      <div class="stat-num">6+</div>
+      <div class="stat-num">9+</div>
       <div class="stat-label">Core bioinformatics services</div>
       <div class="stat-bar-track"><div class="stat-bar-fill" style="width:65%"></div></div>
     </div>
@@ -815,45 +861,63 @@
     <div>
       <div class="sec-eyebrow">What we offer</div>
       <div class="sec-title">Our core services</div>
-      <div class="sec-sub">End-to-end bioinformatics across genomics, transcriptomics, metagenomics, and beyond.</div>
+      <div class="sec-sub">End-to-end omics data analysis — from raw sequencing reads to publication-ready biological insights.</div>
     </div>
   </div>
   <div class="services-grid">
     <div class="svc-card fade-up">
       <div class="svc-num">01</div>
-      <div class="svc-title">NGS & Metagenomics</div>
-      <div class="svc-desc">Comprehensive analysis from quality control to taxonomic profiling — full-stack genomic workflows.</div>
-      <span class="svc-tools">QIIME2 · DADA2 · Kraken2</span>
+      <div class="svc-title">Transcriptomics & Genomics</div>
+      <div class="svc-desc">From bulk RNA-seq to whole genome sequencing — differential expression, variant calling, gene fusion detection, and functional enrichment analysis across any model organism.</div>
+      <span class="svc-tools">STAR · HISAT2 · DESeq2 · edgeR · GATK4</span>
     </div>
     <div class="svc-card fade-up">
       <div class="svc-num">02</div>
-      <div class="svc-title">RNA-seq & Transcriptomics</div>
-      <div class="svc-desc">Differential expression analysis, transcript quantification, and functional annotation.</div>
-      <span class="svc-tools">DESeq2 · edgeR · STAR</span>
+      <div class="svc-title">Clinical Genomics</div>
+      <div class="svc-desc">End-to-end WES/WGS variant analysis pipelines — SNP/indel calling, CNV detection, ACMG-based variant classification, and clinical report generation for inherited disease and oncology.</div>
+      <span class="svc-tools">GATK4 · BWA-MEM · VEP · Franklin · ClinVar</span>
     </div>
     <div class="svc-card fade-up">
       <div class="svc-num">03</div>
-      <div class="svc-title">Pipeline development</div>
-      <div class="svc-desc">Custom reproducible, containerized pipelines for any omics data type.</div>
-      <span class="svc-tools">Snakemake · Nextflow · Docker</span>
+      <div class="svc-title">Metagenomics</div>
+      <div class="svc-desc">Amplicon (16S/ITS) and shotgun metagenomics — taxonomic profiling, diversity analysis (alpha/beta), functional annotation, and differential abundance across treatment groups.</div>
+      <span class="svc-tools">QIIME2 · DADA2 · Kraken2 · HUMAnN3 · phyloseq</span>
     </div>
     <div class="svc-card fade-up">
       <div class="svc-num">04</div>
-      <div class="svc-title">ML & Biomarker discovery</div>
-      <div class="svc-desc">Predictive modelling, feature selection, and AI-driven biomarker identification.</div>
-      <span class="svc-tools">Python · R · scikit-learn</span>
+      <div class="svc-title">Single-cell analysis</div>
+      <div class="svc-desc">snRNA-seq, snATAC-seq, and 10x Multiome processing — cell clustering, trajectory inference, peak calling, TF motif enrichment, and WNN multimodal integration.</div>
+      <span class="svc-tools">Seurat · Signac · ArchR · Harmony · MACS2</span>
     </div>
     <div class="svc-card fade-up">
       <div class="svc-num">05</div>
-      <div class="svc-title">Primer design & in-silico PCR</div>
-      <div class="svc-desc">Virtual PCR simulation, primer design, and sequence specificity validation.</div>
-      <span class="svc-tools">Primer3 · BLAST · SnapGene</span>
+      <div class="svc-title">Proteomics</div>
+      <div class="svc-desc">Label-free and TMT-based quantitative proteomics — peptide identification, protein-level differential abundance, PTM analysis, and pathway enrichment from LC-MS/MS data.</div>
+      <span class="svc-tools">MaxQuant · Perseus · MSstats · STRING · R</span>
     </div>
     <div class="svc-card fade-up">
       <div class="svc-num">06</div>
-      <div class="svc-title">Publication-ready reports</div>
-      <div class="svc-desc">High-quality figures, statistical summaries, and detailed write-ups for publication.</div>
-      <span class="svc-tools">ggplot2 · ComplexHeatmap</span>
+      <div class="svc-title">Statistical analysis</div>
+      <div class="svc-desc">Rigorous biostatistical consulting — experimental design, power analysis, linear/mixed models, survival analysis, and publication-quality visualization for any biological dataset.</div>
+      <span class="svc-tools">R · Python · GraphPad · ggplot2 · ComplexHeatmap</span>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-num">07</div>
+      <div class="svc-title">Multiomics data analysis</div>
+      <div class="svc-desc">Joint analysis of multiple omics layers — integrating transcriptomics, epigenomics, and proteomics to reveal regulatory networks and identify cross-layer biomarkers.</div>
+      <span class="svc-tools">MOFA+ · mixOmics · DIABLO · WNN · R</span>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-num">08</div>
+      <div class="svc-title">Integrative multiomics</div>
+      <div class="svc-desc">Deep multi-layer integration combining scRNA-seq, scATAC-seq, spatial transcriptomics, and clinical metadata — linking chromatin accessibility to gene expression and phenotype.</div>
+      <span class="svc-tools">Seurat · Signac · SCENIC · ArchR · 10x Multiome</span>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-num">09</div>
+      <div class="svc-title">Pipeline development & automation</div>
+      <div class="svc-desc">Custom reproducible, containerized bioinformatics pipelines — scalable from laptop to HPC/cloud, with full documentation and version control for any omics workflow.</div>
+      <span class="svc-tools">Snakemake · Nextflow · Docker · Conda · Git</span>
     </div>
   </div>
 </section>
@@ -866,11 +930,14 @@
       <div class="sec-title">Featured projects</div>
       <div class="sec-sub">Real analyses, reproducible workflows, and publication-ready results.</div>
     </div>
-    <a href="#" class="sec-link">View all projects →</a>
+    <a href="https://github.com/IbraheemMustafaAly" target="_blank" class="sec-link">View all on GitHub →</a>
   </div>
   <div class="projects-grid">
-    <div class="proj-card featured fade-up">
+    <a class="proj-card featured fade-up" href="https://github.com/Mohamed-S-AboHoussien/Gut-Bacterial-Dynamics-in-Spodoptera-littoralis" target="_blank">
       <span class="proj-badge">Featured</span>
+      <div class="proj-github-icon">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </div>
       <div class="proj-cat">Metagenomics · 16S rRNA</div>
       <div class="proj-title">Gut microbiome profiling — Spodoptera littoralis</div>
       <div class="proj-desc">Alpha/beta diversity analysis, taxonomic composition, and DESeq2 differential abundance across treatment groups. Full report with embedded figures.</div>
@@ -881,8 +948,11 @@
         <span class="proj-tag">vegan</span>
         <span class="proj-tag">R</span>
       </div>
-    </div>
-    <div class="proj-card fade-up">
+    </a>
+    <a class="proj-card fade-up" href="https://github.com/IbraheemMustafaAly/Parkinson-Multiomics-DataAnalysis" target="_blank">
+      <div class="proj-github-icon">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </div>
       <div class="proj-cat">Transcriptomics · Microarray</div>
       <div class="proj-title">Parkinson's disease gene expression analysis</div>
       <div class="proj-desc">QC, PCA (2D/3D), variance-based gene filtering, and heatmap visualization to identify top neurodegeneration markers from public GEO data.</div>
@@ -892,8 +962,11 @@
         <span class="proj-tag">limma</span>
         <span class="proj-tag">GEO</span>
       </div>
-    </div>
-    <div class="proj-card fade-up">
+    </a>
+    <a class="proj-card fade-up" href="https://github.com/IbraheemMustafaAly/Clinical-Genomics-Pipeline" target="_blank">
+      <div class="proj-github-icon">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </div>
       <div class="proj-cat">Genomics · Variant Calling</div>
       <div class="proj-title">WES-style variant calling pipeline — chr22</div>
       <div class="proj-desc">End-to-end FASTQ to annotated VCF using GATK4 HaplotypeCaller on synthetic chr22 data with clinical interpretation via Franklin by Genoox.</div>
@@ -904,7 +977,7 @@
         <span class="proj-tag">Trimmomatic</span>
         <span class="proj-tag">FastQC</span>
       </div>
-    </div>
+    </a>
     <div class="proj-empty fade-up">
       <div class="proj-empty-circle"></div>
       <p>More projects coming soon</p>
@@ -949,46 +1022,50 @@
   <div class="team-group fade-up">
     <div class="team-group-label">Technical team</div>
     <div class="team-grid technical">
-      <div class="team-card">
+      <a class="team-card team-card-link" href="https://github.com/IbraheemMustafaAly" target="_blank">
         <img class="avatar"
              src="https://omicx-labs.github.io/OmicX.github.io/ibraheem.jpg"
              alt="Ibraheem Mustafa"
              onerror="this.outerHTML='<div class=\'avatar-initials\'>IM</div>'">
         <div class="member-name">Ibraheem Mustafa</div>
-        <div class="member-role">MSc Candidate in Bioinformatics<br>Field Application Specialist</div>
-      </div>
+        <div class="member-role">MSc Candidate<br>in Bioinformatics</div>
+        <span class="github-chip">
+          <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub profile
+        </span>
+      </a>
       <div class="team-card">
         <img class="avatar"
              src="https://omicx-labs.github.io/OmicX.github.io/ruth.jpeg"
              alt="Ruth Gamal"
              onerror="this.outerHTML='<div class=\'avatar-initials green\'>RG</div>'">
         <div class="member-name">Ruth Gamal</div>
-        <div class="member-role">MSc Candidate in Neuroscience<br>Project Manager</div>
+        <div class="member-role">MSc Candidate<br>in Neuroscience</div>
       </div>
-      <div class="team-card">
+      <a class="team-card team-card-link" href="https://github.com/Mohamed-S-AboHoussien" target="_blank">
         <img class="avatar"
              src="https://omicx-labs.github.io/OmicX.github.io/mohamed_s.jpeg"
              alt="Mohamed S. Abo Hussein"
              onerror="this.outerHTML='<div class=\'avatar-initials\'>MA</div>'">
         <div class="member-name">Mohamed S. Abo Hussein</div>
         <div class="member-role">MSc Candidate in Bioinformatics<br>Lab Supervisor · GU</div>
-      </div>
-      <div class="team-card">
+        <span class="github-chip">
+          <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub profile
+        </span>
+      </a>
+      <a class="team-card team-card-link" href="https://github.com/fatmafathi-bio" target="_blank">
         <img class="avatar"
              src="https://omicx-labs.github.io/OmicX.github.io/fatma.jpeg"
              alt="Fatma Fathi"
              onerror="this.outerHTML='<div class=\'avatar-initials green\'>FF</div>'">
         <div class="member-name">Fatma Fathi</div>
         <div class="member-role">MSc Candidate<br>in Bioinformatics</div>
-      </div>
-      <div class="team-card">
-        <img class="avatar"
-             src="https://omicx-labs.github.io/OmicX.github.io/amr.jpeg"
-             alt="Amr Adel"
-             onerror="this.outerHTML='<div class=\'avatar-initials green\'>RG</div>'">
-        <div class="member-name">Amr Adel</div>
-        <div class="member-role">Neurodevelopmental Genetics Research Fellow<br>National Research Center NRC</div>
-      </div>
+        <span class="github-chip">
+          <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub profile
+        </span>
+      </a>
     </div>
   </div>
 
