@@ -85,7 +85,6 @@
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .svc-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 22px; transition: border-color 0.25s, transform 0.2s; position: relative; overflow: hidden; }
   .svc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--navy); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-  .svc-card:nth-child(even)::before { background: var(--green); }
   .svc-card:hover::before { transform: scaleX(1); }
   .svc-card:hover { border-color: #c8d4e8; transform: translateY(-3px); }
   .svc-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--border); line-height: 1; margin-bottom: 12px; }
@@ -267,14 +266,14 @@
   <div class="services-grid">
     <div class="svc-card fade-up">
       <div class="svc-num">01</div>
-      <div class="svc-title">Transcriptomics & Genomics</div>
-      <div class="svc-desc">From bulk RNA-seq to whole genome sequencing — differential expression, variant calling, gene fusion detection, and functional enrichment analysis across any model organism.</div>
-      <span class="svc-tools">STAR · HISAT2 · DESeq2 · edgeR · GATK4</span>
+      <div class="svc-title">Transcriptomics & RNA-seq</div>
+      <div class="svc-desc">Bulk and single-sample RNA-seq analysis — differential expression, transcript quantification, splicing analysis, gene fusion detection, and functional enrichment across any model organism or tissue.</div>
+      <span class="svc-tools">STAR · HISAT2 · DESeq2 · edgeR · salmon</span>
     </div>
     <div class="svc-card fade-up">
       <div class="svc-num">02</div>
-      <div class="svc-title">Clinical Genomics</div>
-      <div class="svc-desc">End-to-end WES/WGS variant analysis pipelines — SNP/indel calling, CNV detection, ACMG-based variant classification, and clinical report generation for inherited disease and oncology.</div>
+      <div class="svc-title">Clinical & Variant Genomics</div>
+      <div class="svc-desc">WES/WGS variant calling pipelines for clinical applications — SNP/indel/CNV detection, ACMG-based classification, pharmacogenomics, and report generation for inherited disease and oncology panels.</div>
       <span class="svc-tools">GATK4 · BWA-MEM · VEP · Franklin · ClinVar</span>
     </div>
     <div class="svc-card fade-up">
